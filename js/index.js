@@ -136,3 +136,14 @@ fetch('oitavas-de-final.json')
 
     })
   })
+
+// consumir dados json externos de uma API
+  fetch('https://worldcupjson.net/matches/today/?by_date=DESC')
+    .then( resposta => resposta.json())
+    .then( dados => {
+      console.log(dados)
+      dados.forEach( jogo => {
+         console.log(jogo)         
+         console.log(jogo.home_team_coutry + "x" + jogo.away_team_coutry)
+      })      
+    })
