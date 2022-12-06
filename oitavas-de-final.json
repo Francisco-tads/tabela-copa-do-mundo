@@ -130,14 +130,14 @@
         "gols_mandante": "",
         "mandante": "Marrocos",
         "partida": "MAR x ESP",
-        "gols_visitante": "",
+        "gols_visitante": "0",
         "visitante": "Espanha",
         "img_mandante": "marrocos.png",
         "img_visitante": "espanha.png",
         "prorrogacao": "nao",
-        "penaltis": "nao",
-        "placar_penaltis": "",
-        "classificado": ""
+        "penaltis": "sim",
+        "placar_penaltis": "3x0",
+        "classificado": "Marrocos"
     },
     {
         "id": 8,
