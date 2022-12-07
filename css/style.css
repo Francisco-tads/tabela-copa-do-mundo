@@ -91,8 +91,8 @@ select {
   border-radius: 5px;
 }
 
-/* Formatação das Oitavas */
-.divOitavas {
+/* Formatação das Oitavas, e quartas */
+.divOitavas, .divQuartas {
   /* border: 1px solid white; */
   width: 90%;
   margin-inline: auto;
@@ -110,7 +110,7 @@ h6 {
   text-align: center;
 }
 
-.divOitavas > div { 
+.divOitavas > div, .divQuartas > div { 
   /* margin-block: 10px; */ 
   background: #ffffff70;
   color: #000;

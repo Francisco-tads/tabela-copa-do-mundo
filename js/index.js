@@ -131,6 +131,10 @@ fetch('oitavas-de-final.json')
           <img class='imagemp' src='./images/bandeiras/${jogo.img_visitante}' />
          </h4>
          <h5>${jogo.estadio}</h5>
+         <h6>Prorrogação: ${jogo.prorrogacao}</h6>
+         <h6>Pênaltis: ${jogo.penaltis}</h6>
+         <h6>Placar dos Pênaltis: ${jogo.placar_penaltis}</h6>
+         <h6>Classificação: ${jogo.classificado}</h6>
 
        `
 
@@ -147,3 +151,41 @@ fetch('oitavas-de-final.json')
          console.log(jogo.home_team_coutry + "x" + jogo.away_team_coutry)
       })      
     })
+
+    // Quartas de Final
+    let divQuartas = document.querySelector('.divQuartas')
+    // console.log(divQuartas)
+    
+    fetch('Quartas-de-final.json')
+      .then(resposta => resposta.json())
+      .then(dados => {
+        console.log(dados)
+    
+        dados.forEach(jogo => {
+          // criar uma nova divisoria
+          let divisoria = document.createElement('div')
+    
+          // colocar ela como filho de divQuartas
+          divQuartas.appendChild(divisoria)
+    
+          // preencher os dados de cada jogo
+          divisoria.innerHTML = `
+             <h3 class='jogo'>Quartas ${jogo.id}</h3>
+             <h4>
+             <span class='dia'>${jogo.diaSemana}</span>
+             ${jogo.data}
+             <span class='hora'>${jogo.hora}</span>         
+             </h4>         
+             <h4 class='centralizar jogo'>
+               <img class='imagemp' src='./images/bandeiras/${jogo.img_mandante}' />
+               <span class='gols'>${jogo.gols_mandante}</span> 
+             ${jogo.partida}
+             <span class='gols'>${jogo.gols_visitante}</span>
+              <img class='imagemp' src='./images/bandeiras/${jogo.img_visitante}' />
+             </h4>
+             <h5>${jogo.estadio}</h5>
+    
+           `
+    
+        })
+      })
