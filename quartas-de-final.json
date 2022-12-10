@@ -53,8 +53,8 @@
         "visitante": "Portugal",
         "img_mandante": "marrocos.png",
         "img_visitante": "portugal.png",
-        "prorrogacao": "Não",
-        "penaltis": "Não",
+        "prorrogacao": "",
+        "penaltis": "",
         "placar_penaltis": "",
         "classificado": ""
     },
@@ -72,8 +72,8 @@
         "visitante": "Inglaterra",
         "img_mandante": "franca.png",
         "img_visitante": "inglaterra.png",
-        "prorrogacao": "Não",
-        "penaltis": "Não",
+        "prorrogacao": "",
+        "penaltis": "",
         "placar_penaltis": "",
         "classificado": ""
     }
