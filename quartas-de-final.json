@@ -8,16 +8,16 @@
         "hora": "12:00",
         "estadio": "CIDADE DA EDUCAÇÃO",
         "mandante": "Croácia",
-        "gols_mandante": "",
+        "gols_mandante": "1",
         "partida": "CRO x BRA",
-        "gols_visitante": "",
+        "gols_visitante": "2",
         "visitante": "Brasil",
         "img_mandante": "croacia.png",
         "img_visitante": "brasil.png",
-        "prorrogacao": "Não",
-        "penaltis": "Não",
-        "placar_penaltis": "",
-        "classificado": ""
+        "prorrogacao": "sim",
+        "penaltis": "sim",
+        "placar_penaltis": "4 x 2",
+        "classificado": "Croácia"
     },
     {
         "id": 2,
@@ -34,10 +34,10 @@
         "visitante": "Argentina",
         "img_mandante": "holanda.png",
         "img_visitante": "argentina.png",
-        "prorrogacao": "Não",
-        "penaltis": "Não",
-        "placar_penaltis": "",
-        "classificado": ""
+        "prorrogacao": "sim",
+        "penaltis": "sim",
+        "placar_penaltis": "3 x 4",
+        "classificado": "Argentina"
     },
     {
         "id": 3,

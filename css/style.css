@@ -56,14 +56,19 @@ table tr td {
 }
 
 .gols {
-  width: 30px;
+  width: 35px;
   height: 30px;
   display: block;
   border: 1px solid #ccc;
-  border-radius: 50%;
+  border-radius: 20%;
   line-height: 30px;
   background-color: #fff;
   color: #000;
+}
+
+input[type=number] {
+  text-align: right;
+  font-weight: bold;
 }
 
 .partida {
@@ -92,7 +97,7 @@ select {
 }
 
 /* Formatação das Oitavas, e quartas */
-.divOitavas, .divQuartas {
+.divOitavas, .divQuartas, .divSemifinais {
   /* border: 1px solid white; */
   width: 90%;
   margin-inline: auto;
@@ -110,7 +115,7 @@ h6 {
   text-align: center;
 }
 
-.divOitavas > div, .divQuartas > div { 
+.divOitavas > div, .divQuartas > div, .divSemifinais > div { 
   /* margin-block: 10px; */ 
   background: #ffffff70;
   color: #000;

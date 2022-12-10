@@ -5,8 +5,8 @@ let tabelaJogos = document.querySelector('.tabelaJogos')
 
 // Ler o arquivo json
 fetch('jogos-fase1.json')
-  .then(response => response.json())
-  .then(data => data.forEach(jogo => {
+  .then( response => response.json())
+  .then( data => data.forEach(jogo => {
     // console.log(data)
 
     // criar um linha de tabela, colocar ela na tabela
@@ -50,8 +50,8 @@ function exibirTabelaClasificacao(letraGrupo) {
 
   // Ler json das classificações
   fetch(`classificacaoGrupo${letraGrupo}.json`)
-    .then(resposta => resposta.json())
-    .then(dados => {
+    .then( resposta => resposta.json())
+    .then( dados => {
       // Ordenar os dados do array
       dados.sort(function compararNumeros(a, b) {
         return a.posicao - b.posicao
@@ -101,12 +101,12 @@ selectLetra.addEventListener('change', (event) => {
 
 // Oitavas de Final
 let divOitavas = document.querySelector('.divOitavas')
-console.log(divOitavas)
+//console.log(divOitavas)
 
 fetch('oitavas-de-final.json')
-  .then(resposta => resposta.json())
-  .then(dados => {
-    console.log(dados)
+  .then( resposta => resposta.json())
+  .then( dados => {
+    // console.log(dados)
 
     dados.forEach(jogo => {
       // criar uma nova divisoria
@@ -142,34 +142,52 @@ fetch('oitavas-de-final.json')
   })
 
 // consumir dados json externos de uma API
-  fetch('https://worldcupjson.net/matches/today/?by_date=DESC')
-    .then( resposta => resposta.json())
-    .then( dados => {
-      console.log(dados)
-      dados.forEach( jogo => {
-         console.log(jogo)         
-         console.log(jogo.home_team_coutry + "x" + jogo.away_team_coutry)
-      })      
+fetch('https://worldcupjson.net/matches/tomorrow/?by_date=DESC')
+  .then( resposta => resposta.json())
+  .then( dados => {
+    // console.log(dados)
+     dados.forEach( jogo => {
+    //  console.log(jogo)
+        console.log(jogo.home_team_country + " x " + jogo.away_team_country)
     })
+  })
 
-    // Quartas de Final
-    let divQuartas = document.querySelector('.divQuartas')
-    // console.log(divQuartas)
-    
-    fetch('Quartas-de-final.json')
-      .then(resposta => resposta.json())
-      .then(dados => {
-        console.log(dados)
-    
-        dados.forEach(jogo => {
-          // criar uma nova divisoria
-          let divisoria = document.createElement('div')
-    
-          // colocar ela como filho de divQuartas
-          divQuartas.appendChild(divisoria)
-    
-          // preencher os dados de cada jogo
-          divisoria.innerHTML = `
+// Quartas de Final
+let divQuartas = document.querySelector('.divQuartas')
+ console.log(divQuartas)
+const selecoes = [
+  {
+    mandante: 'Croácia',
+    visitante: 'Brasil' 
+  },
+  {
+    mandante: 'Holanda',
+    visitante: 'Argentina' 
+  },
+  {
+    mandante: 'Marrocos',
+    visitante: 'Portugal' 
+  },
+  {
+    mandante: 'França',
+    visitante: 'Inglaterra' 
+  }
+]
+
+fetch('quartas-de-final.json')
+  .then( resposta => resposta.json())
+  .then( dados => {
+    console.log(dados)
+
+    dados.forEach( jogo => {
+      // criar uma nova divisoria
+      let divisoria = document.createElement('div')
+
+      // colocar ela como filho de divQuartas
+      divQuartas.appendChild(divisoria)
+
+      // preencher os dados de cada jogo
+      divisoria.innerHTML = `
              <h3 class='jogo'>Quartas ${jogo.id}</h3>
              <h4>
              <span class='dia'>${jogo.diaSemana}</span>
@@ -178,14 +196,81 @@ fetch('oitavas-de-final.json')
              </h4>         
              <h4 class='centralizar jogo'>
                <img class='imagemp' src='./images/bandeiras/${jogo.img_mandante}' />
-               <span class='gols'>${jogo.gols_mandante}</span> 
+               <input type='number' min='0' max='99' class='gols golsMandante'>
+                ${jogo.gols_mandante}
+              </input> 
              ${jogo.partida}
-             <span class='gols'>${jogo.gols_visitante}</span>
+             <input type='number' min='0' max='99' class='gols golsVisitante'>
+                ${jogo.gols_visitante}
+              </input>
               <img class='imagemp' src='./images/bandeiras/${jogo.img_visitante}' />
              </h4>
              <h5>${jogo.estadio}</h5>
-    
-           `
-    
+             <h6>Prorrogação: ${jogo.prorrogacao}</h6>
+         <h6>Pênaltis: ${jogo.penaltis}</h6>
+         <h6>Placar dos Pênaltis: ${jogo.placar_penaltis}</h6>
+         <h6>Classificação: ${jogo.classificado}</h6>    
+          `
+      let inputGolsMandante = document.querySelectorAll('.golsMandante')
+      let inputGolsVisitante = document.querySelectorAll('.golsVisitante')
+      let golsM = 0
+      let golsV = 0
+
+      // Pegar os valores dos inputs
+      inputGolsMandante.forEach( (jogo, posicao) => {
+        inputGolsMandante[posicao].addEventListener('change', (e) => {
+          console.log(e.target.value)
+          golsM = e.target.value
         })
       })
+      inputGolsVisitante.forEach((jogo, posicao) => {
+        inputGolsVisitante[posicao].addEventListener('change', (e) => {
+          console.log(e.target.value)
+          golsV = e.target.value
+          // Ver o resultado da partida
+          resultados(golsM, golsV, posicao)
+        })
+      })
+
+    }) // fim do forEach 
+  })
+
+let spanQ1 = document.querySelector('.q1')
+let spanQ2 = document.querySelector('.q2')
+let spanQ3 = document.querySelector('.q3')
+let spanQ4 = document.querySelector('.q4')
+
+function resultados(golsM, golsV, posicao) {
+  if (golsM > golsV) {
+    if(posicao == 0) {
+      spanQ1.innerHTML = selecoes[posicao].mandante
+    }
+    if(posicao == 1) {
+      spanQ2.innerHTML = selecoes[posicao].mandante
+    }
+    if(posicao == 2) {
+      spanQ3.innerHTML = selecoes[posicao].mandante
+    }
+    if(posicao == 3) {
+      spanQ4.innerHTML = selecoes[posicao].mandante
+    }
+
+  }
+  if (golsM < golsV) {
+    if(posicao == 0) {
+      spanQ1.innerHTML = selecoes[posicao].visitante
+    }
+    if(posicao == 1) {
+      spanQ2.innerHTML = selecoes[posicao].visitante
+    }
+    if(posicao == 2) {
+      spanQ3.innerHTML = selecoes[posicao].visitante
+    }
+    if(posicao == 3) {
+      spanQ4.innerHTML = selecoes[posicao].visitante
+    } 
+  }
+  if (golsM == golsV) {
+    console.log('Empate')
+  }
+}

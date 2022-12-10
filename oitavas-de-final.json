@@ -14,8 +14,8 @@
         "visitante": "Estados Unidos",
         "img_mandante": "holanda.png",
         "img_visitante": "estados-unidos.png",
-        "prorrogacao": "nao",
-        "penaltis": "nao",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
         "placar_penaltis": "",
         "classificado": "Holanda"
     },
@@ -34,8 +34,8 @@
         "visitante": "Austrália",
         "img_mandante": "argentina.png",
         "img_visitante": "australia.png",
-        "prorrogacao": "nao",
-        "penaltis": "nao",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
         "placar_penaltis": "",
         "classificado": "Argentina"
     },
@@ -54,8 +54,8 @@
         "visitante": "Senegal",
         "img_mandante": "inglaterra.png",
         "img_visitante": "senegal.png",
-        "prorrogacao": "nao",
-        "penaltis": "nao",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
         "placar_penaltis": "",
         "classificado": "Inglaterra"
     },
@@ -74,8 +74,8 @@
         "visitante": "Polônia",
         "img_mandante": "franca.png",
         "img_visitante": "polonia.png",
-        "prorrogacao": "nao",
-        "penaltis": "nao",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
         "placar_penaltis": "",
         "classificado": "França"
     },
@@ -114,8 +114,8 @@
         "visitante": "Coreia do Sul",
         "img_mandante": "brasil.png",
         "img_visitante": "coreia-do-sul.png",
-        "prorrogacao": "nao",
-        "penaltis": "nao",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
         "placar_penaltis": "",
         "classificado": "Brasil"
     },
@@ -134,7 +134,7 @@
         "visitante": "Espanha",
         "img_mandante": "marrocos.png",
         "img_visitante": "espanha.png",
-        "prorrogacao": "nao",
+        "prorrogacao": "Não",
         "penaltis": "sim",
         "placar_penaltis": "3x0",
         "classificado": "Marrocos"
@@ -154,8 +154,8 @@
         "visitante": "Suíça",
         "img_mandante": "portugal.png",
         "img_visitante": "suica.png",
-        "prorrogacao": "nao",
-        "penaltis": "nao",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
         "placar_penaltis": "",
         "classificado": "portugal"
     }
