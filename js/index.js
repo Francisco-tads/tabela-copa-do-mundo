@@ -5,8 +5,8 @@ let tabelaJogos = document.querySelector('.tabelaJogos')
 
 // Ler o arquivo json
 fetch('jogos-fase1.json')
-  .then( response => response.json())
-  .then( data => data.forEach(jogo => {
+  .then(response => response.json())
+  .then(data => data.forEach(jogo => {
     // console.log(data)
 
     // criar um linha de tabela, colocar ela na tabela
@@ -50,8 +50,8 @@ function exibirTabelaClasificacao(letraGrupo) {
 
   // Ler json das classificações
   fetch(`classificacaoGrupo${letraGrupo}.json`)
-    .then( resposta => resposta.json())
-    .then( dados => {
+    .then(resposta => resposta.json())
+    .then(dados => {
       // Ordenar os dados do array
       dados.sort(function compararNumeros(a, b) {
         return a.posicao - b.posicao
@@ -104,8 +104,8 @@ let divOitavas = document.querySelector('.divOitavas')
 //console.log(divOitavas)
 
 fetch('oitavas-de-final.json')
-  .then( resposta => resposta.json())
-  .then( dados => {
+  .then(resposta => resposta.json())
+  .then(dados => {
     // console.log(dados)
 
     dados.forEach(jogo => {
@@ -143,34 +143,34 @@ fetch('oitavas-de-final.json')
 
 // consumir dados json externos de uma API
 fetch('https://worldcupjson.net/matches/tomorrow/?by_date=DESC')
-  .then( resposta => resposta.json())
-  .then( dados => {
+  .then(resposta => resposta.json())
+  .then(dados => {
     // console.log(dados)
-     dados.forEach( jogo => {
-    //  console.log(jogo)
-        console.log(jogo.home_team_country + " x " + jogo.away_team_country)
+    dados.forEach(jogo => {
+      //  console.log(jogo)
+      console.log(jogo.home_team_country + " x " + jogo.away_team_country)
     })
   })
 
 // Quartas de Final
 let divQuartas = document.querySelector('.divQuartas')
- console.log(divQuartas)
+console.log(divQuartas)
 const selecoes = [
   {
     mandante: 'Croácia',
-    visitante: 'Brasil' 
+    visitante: 'Brasil'
   },
   {
     mandante: 'Holanda',
-    visitante: 'Argentina' 
+    visitante: 'Argentina'
   },
   {
     mandante: 'Marrocos',
-    visitante: 'Portugal' 
+    visitante: 'Portugal'
   },
   {
-    mandante: 'França',
-    visitante: 'Inglaterra' 
+    mandante: 'Inglaterra',
+    visitante: 'França'
   }
 ]
 
@@ -179,7 +179,7 @@ fetch('quartas-de-final.json')
   .then( dados => {
     console.log(dados)
 
-    dados.forEach( jogo => {
+    dados.forEach(jogo => {
       // criar uma nova divisoria
       let divisoria = document.createElement('div')
 
@@ -194,22 +194,20 @@ fetch('quartas-de-final.json')
              ${jogo.data}
              <span class='hora'>${jogo.hora}</span>         
              </h4>         
-             <h4 class='centralizar jogo'>
-               <img class='imagemp' src='./images/bandeiras/${jogo.img_mandante}' />
-               <input type='number' min='0' max='99' class='gols golsMandante'>
-                ${jogo.gols_mandante}
-              </input> 
-             ${jogo.partida}
-             <input type='number' min='0' max='99' class='gols golsVisitante'>
-                ${jogo.gols_visitante}
-              </input>
-              <img class='imagemp' src='./images/bandeiras/${jogo.img_visitante}' />
-             </h4>
-             <h5>${jogo.estadio}</h5>
-             <h6>Prorrogação: ${jogo.prorrogacao}</h6>
-         <h6>Pênaltis: ${jogo.penaltis}</h6>
-         <h6>Placar dos Pênaltis: ${jogo.placar_penaltis}</h6>
-         <h6>Classificação: ${jogo.classificado}</h6>    
+              <h4 class='centralizar jogo'>
+                <img class='imagemp' src='./images/bandeiras/${jogo.img_mandante}' />
+                <input type='number' min='0' max='99' class='gols golsMandante'
+                value='${jogo.gols_mandante}'>                              
+              ${jogo.partida}
+                <input type='number' min='0' max='99' class='gols golsVisitante' 
+                value='${jogo.gols_visitante}'>                             
+                <img class='imagemp' src='./images/bandeiras/${jogo.img_visitante}' />
+              </h4>
+              <h5>${jogo.estadio}</h5>
+              <h6>Prorrogação: ${jogo.prorrogacao}</h6>
+          <h6>Pênaltis: ${jogo.penaltis}</h6>
+          <h6>Placar dos Pênaltis: ${jogo.placar_penaltis}</h6>
+          <h6>Classificação: ${jogo.classificado}</h6>    
           `
       let inputGolsMandante = document.querySelectorAll('.golsMandante')
       let inputGolsVisitante = document.querySelectorAll('.golsVisitante')
@@ -217,7 +215,7 @@ fetch('quartas-de-final.json')
       let golsV = 0
 
       // Pegar os valores dos inputs
-      inputGolsMandante.forEach( (jogo, posicao) => {
+      inputGolsMandante.forEach((jogo, posicao) => {
         inputGolsMandante[posicao].addEventListener('change', (e) => {
           console.log(e.target.value)
           golsM = e.target.value
@@ -232,6 +230,11 @@ fetch('quartas-de-final.json')
         })
       })
 
+      // console.log(jogo.classificado)
+      classificados.push(jogo.classificado)
+      // console.log(classificados)
+      localStorage.setItem('classificados', JSON.stringify(classificados))
+
     }) // fim do forEach 
   })
 
@@ -242,35 +245,49 @@ let spanQ4 = document.querySelector('.q4')
 
 function resultados(golsM, golsV, posicao) {
   if (golsM > golsV) {
-    if(posicao == 0) {
+    if (posicao == 0) {
       spanQ1.innerHTML = selecoes[posicao].mandante
     }
-    if(posicao == 1) {
+    if (posicao == 1) {
       spanQ2.innerHTML = selecoes[posicao].mandante
     }
-    if(posicao == 2) {
+    if (posicao == 2) {
       spanQ3.innerHTML = selecoes[posicao].mandante
     }
-    if(posicao == 3) {
+    if (posicao == 3) {
       spanQ4.innerHTML = selecoes[posicao].mandante
     }
 
   }
   if (golsM < golsV) {
-    if(posicao == 0) {
+    if (posicao == 0) {
       spanQ1.innerHTML = selecoes[posicao].visitante
     }
-    if(posicao == 1) {
+    if (posicao == 1) {
       spanQ2.innerHTML = selecoes[posicao].visitante
     }
-    if(posicao == 2) {
+    if (posicao == 2) {
       spanQ3.innerHTML = selecoes[posicao].visitante
     }
-    if(posicao == 3) {
+    if (posicao == 3) {
       spanQ4.innerHTML = selecoes[posicao].visitante
-    } 
+    }
   }
   if (golsM == golsV) {
     console.log('Empate')
   }
 }
+
+// Criar uma lista de classificados
+let classificados = []
+
+// Ler os span que tem a class quartas 
+let spans = document.querySelectorAll('.quartas')
+console.log(spans)
+
+// Preecher com a lista de classificados
+console.log( JSON.parse(localStorage.getItem('classificados'))[1] )
+
+spans.forEach( (span, indice) => {
+    span.innerHTML = JSON.parse(localStorage.getItem('classificados'))[indice]  
+} )
