@@ -1,4 +1,4 @@
-console.log('Tabela da Copa')
+// console.log('Tabela da Copa')
 
 let tabelaJogos = document.querySelector('.tabelaJogos')
 // console.log(tabelaJogos)
@@ -175,8 +175,8 @@ const selecoes = [
 ]
 
 fetch('quartas-de-final.json')
-  .then( resposta => resposta.json())
-  .then( dados => {
+  .then(resposta => resposta.json())
+  .then(dados => {
     console.log(dados)
 
     dados.forEach(jogo => {
@@ -283,11 +283,94 @@ let classificados = []
 
 // Ler os span que tem a class quartas 
 let spans = document.querySelectorAll('.quartas')
-console.log(spans)
+// console.log(spans)
 
 // Preecher com a lista de classificados
-console.log( JSON.parse(localStorage.getItem('classificados'))[1] )
+// console.log( JSON.parse(localStorage.getItem('classificados'))[1] )
 
-spans.forEach( (span, indice) => {
-    span.innerHTML = JSON.parse(localStorage.getItem('classificados'))[indice]  
-} )
+spans.forEach((span, indice) => {
+  span.innerHTML = JSON.parse(localStorage.getItem('classificados'))[indice]
+})
+
+// Manipular dados das semifinais para exibir finais
+let jogosSemiFinais = [
+  {
+    gols_mandante: '',
+    gols_visitante: '',
+    mandante: 'Croácia',
+    visitante: 'Argentina',
+    img_mandante: 'croacia.png',
+    img_visitante: 'argentina.png',
+    vitorioso: '',
+    perdedor: ''
+  },
+  {
+    gols_mandante: '',
+    gols_visitante: '',
+    mandante: 'Marrocos',
+    visitante: 'França',
+    img_mandante: 'marrocos.png',
+    img_visitante: 'franca.png',
+    vitorioso: '',
+    perdedor: ''
+  }
+]
+
+console.log(jogosSemiFinais)
+
+// selecionar os inputs de gols das semifinais
+let inputGolsSemiFinais = document.querySelectorAll('.semi .gols')
+console.log(inputGolsSemiFinais)
+
+inputGolsSemiFinais.forEach((gol, posicao) => {
+  inputGolsSemiFinais[posicao].addEventListener('change', (e) => {
+    console.log(e.target.value)
+    switch (posicao) {
+      case 0:
+        jogosSemiFinais[0].gols_mandante = e.target.value
+      // break
+      case 1:
+        jogosSemiFinais[0].gols_visitante = e.target.value
+      // break
+      case 2:
+        jogosSemiFinais[1].gols_mandante = e.target.value
+      // break
+      case 3:
+        jogosSemiFinais[1].gols_visitante = e.target.value
+      // break    
+    }
+  })
+})
+
+let spanT1 = document.querySelector('.t1')
+let spanT2 = document.querySelector('.t2')
+let spanF1 = document.querySelector('.f1')
+let spanF2 = document.querySelector('.f2')
+
+// funçao para definir vencedor e perd das semifinais
+function verResultadosSemiFinais() {
+
+  if (jogosSemiFinais[0].gols_mandante > jogosSemiFinais[0].gols_visitante) {
+    console.log('Vitória do mandante no s1')
+    spanF1.innerHTML = jogosSemiFinais[0].visitante
+    spanT1.innerHTML = jogosSemiFinais[0].mandante
+  }
+  if (jogosSemiFinais[0].gols_mandante < jogosSemiFinais[0].gols_visitante) {
+    console.log('Vitória do visitante no s1')
+    spanF1.innerHTML = jogosSemiFinais[0].mandante
+    spanT1.innerHTML = jogosSemiFinais[0].visitante
+  }
+
+  if (jogosSemiFinais[1].gols_mandante > jogosSemiFinais[1].gols_visitante) {
+    console.log('Vitória do mandante no s2')
+    spanF2.innerHTML = jogosSemiFinais[1].mandante
+    spanT2.innerHTML = jogosSemiFinais[1].visitante
+  }
+  if (jogosSemiFinais[1].gols_mandante < jogosSemiFinais[1].gols_visitante) {
+    console.log('Vitória do visitante no s2')
+    spanF2.innerHTML = jogosSemiFinais[1].visitante
+    spanT2.innerHTML = jogosSemiFinais[1].mandante
+  }
+}
+
+verResultadosSemiFinais()

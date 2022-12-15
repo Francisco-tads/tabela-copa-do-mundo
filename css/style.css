@@ -98,7 +98,7 @@ select {
 }
 
 /* Formatação das Oitavas, e quartas */
-.divOitavas, .divQuartas, .divSemifinais {
+.divOitavas, .divQuartas, .divSemifinais, .divFinais {
   /* border: 1px solid white; */
   width: 90%;
   margin-inline: auto;
@@ -116,7 +116,7 @@ h6 {
   text-align: center;
 }
 
-.divOitavas > div, .divQuartas > div, .divSemifinais > div { 
+.divOitavas > div, .divQuartas > div, .divSemifinais > div, .divFinais > div { 
   /* margin-block: 10px; */ 
   background: #ffffff70;
   color: #000;
