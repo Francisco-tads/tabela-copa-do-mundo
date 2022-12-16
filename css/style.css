@@ -103,7 +103,6 @@ select {
   width: 90%;
   margin-inline: auto;
   margin-block: 1rem;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;

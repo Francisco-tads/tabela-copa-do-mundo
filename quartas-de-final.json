@@ -38,28 +38,10 @@
         "penaltis": "sim",
         "placar_penaltis": "3 x 4",
         "classificado": "Argentina"
-    },
-    {
-        "id": 3,
-        "rodada": "Quartas de final 4",
-        "diaSemana": "SÁB",
-        "data": "10/12/2022",
-        "hora": "12:00",
-        "estadio": "AL THUMAMA",
-        "gols_mandante": "1",
-        "mandante": "Marrocos",
-        "partida": "MAR x POR",
-        "gols_visitante": "0",
-        "visitante": "Portugal",
-        "img_mandante": "marrocos.png",
-        "img_visitante": "portugal.png",
-        "prorrogacao": "Não",
-        "penaltis": "Não",
-        "placar_penaltis": "-",
-        "classificado": "Marrocos"
-    },
+    },    
     {
         "id": 4,
+        "jogo": 59,
         "rodada": "Quartas de final 3",
         "diaSemana": "SÁB",
         "data": "10/12/2022",
@@ -76,5 +58,25 @@
         "penaltis": "Não",
         "placar_penaltis": "-",
         "classificado": "França"
+    },
+    {
+        "id": 3,
+        "jogo": 60,
+        "rodada": "Quartas de final 4",
+        "diaSemana": "SÁB",
+        "data": "10/12/2022",
+        "hora": "12:00",
+        "estadio": "AL THUMAMA",
+        "gols_mandante": "1",
+        "mandante": "Marrocos",
+        "partida": "MAR x POR",
+        "gols_visitante": "0",
+        "visitante": "Portugal",
+        "img_mandante": "marrocos.png",
+        "img_visitante": "portugal.png",
+        "prorrogacao": "Não",
+        "penaltis": "Não",
+        "placar_penaltis": "-",
+        "classificado": "Marrocos"
     }
 ]

@@ -295,24 +295,24 @@ spans.forEach((span, indice) => {
 // Manipular dados das semifinais para exibir finais
 let jogosSemiFinais = [
   {
-    gols_mandante: '',
-    gols_visitante: '',
+    gols_mandante: '0',
+    gols_visitante: '3',
     mandante: 'Croácia',
     visitante: 'Argentina',
     img_mandante: 'croacia.png',
     img_visitante: 'argentina.png',
-    vitorioso: '',
-    perdedor: ''
+    vitorioso: 'Argentina',
+    perdedor: 'Croácia'
   },
   {
-    gols_mandante: '',
-    gols_visitante: '',
-    mandante: 'Marrocos',
-    visitante: 'França',
-    img_mandante: 'marrocos.png',
-    img_visitante: 'franca.png',
-    vitorioso: '',
-    perdedor: ''
+    gols_mandante: '2',
+    gols_visitante: '0',
+    mandante: 'França',
+    visitante: 'Marrocos',
+    img_mandante: 'franca.png',
+    img_visitante: 'marrocos.png',
+    vitorioso: 'França',
+    perdedor: 'Marrocos'
   }
 ]
 
@@ -373,4 +373,18 @@ function verResultadosSemiFinais() {
   }
 }
 
-verResultadosSemiFinais()
+// verResultadosSemiFinais()
+
+function preencherResultadoSemiFinais() {
+  spanF1.innerHTML = jogosSemiFinais[0].vitorioso
+  spanF2.innerHTML = jogosSemiFinais[1].vitorioso
+  spanT1.innerHTML = jogosSemiFinais[0].perdedor
+  spanT2.innerHTML = jogosSemiFinais[1].perdedor
+  let golsSemi = document.querySelectorAll('.semi .gols')
+  golsSemi[0].value = jogosSemiFinais[0].gols_mandante
+  golsSemi[1].value = jogosSemiFinais[0].gols_visitante
+  golsSemi[2].value = jogosSemiFinais[1].gols_mandante
+  golsSemi[3].value = jogosSemiFinais[1].gols_visitante
+}
+
+preencherResultadoSemiFinais()
